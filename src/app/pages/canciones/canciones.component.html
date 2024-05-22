@@ -1,0 +1,10 @@
+<label for="titulo">Nombre de la Canción</label>
+<input id="titulo" type="text" [(ngModel)]="musica.titulo">
+<br>
+<label for="artista">Artista</label>
+<input id="artista" type="text" [(ngModel)]="musica.artista">
+<br>
+<label for="genero">Genero</label>
+<input id="genero" type="text" [(ngModel)]="musica.genero">
+<br>
+<input type="button" value="Guardar" (click)="guardarCancion()">
