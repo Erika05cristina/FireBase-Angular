@@ -8,3 +8,11 @@
 <input id="genero" type="text" [(ngModel)]="musica.genero">
 <br>
 <input type="button" value="Guardar" (click)="guardarCancion()">
+
+
+//Muestra una lista de canciones  que esta en el firebase
+<ul>
+    @for (can of canciones; track can.titulo) {
+        <li>{{can.titulo}} - {{can.artista}} - {{can.genero}}</li>
+    }
+</ul>

@@ -16,10 +16,23 @@ export class CancionesComponent {
   a: string='';
   g: string='';
   musica: Musica = new Musica();
-
+  canciones: any;
   constructor(private firestoreService: FirebaseService) { }
 
- 
+  ngOnInit() {
+  this.firestoreService.getMusica().then(data=> {
+    this.canciones = data.docs.map((doc:any)=>{
+      console.log(doc.titulo);
+      return{
+        id: doc.id,
+        ... doc.data()        
+      }
+    });
+   
+  }
+  );
+  }
+
 
   guardarCancion() {
     console.log('Guardando canción: ' + this.t + ' ' + this.a + ' ' + this.g);

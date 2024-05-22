@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, addDoc, collection } from '@angular/fire/firestore';
+import { Firestore, addDoc, collection, getDocs, query } from '@angular/fire/firestore';
 import { Musica } from '../domain/musica';
 
 @Injectable({
@@ -12,6 +12,9 @@ export class FirebaseService {
   {
     //canciones es el nombre de la coleccion en Firestore
     addDoc(collection(this.firestore, 'canciones'), Object.assign({}, musica));
+  }  
+  getMusica()
+  {
+    return getDocs(query(collection(this.firestore, 'canciones')));
   }
-  
 }
